@@ -20,7 +20,7 @@ app.use('/api/v1', router);
 
 app.get('/', (req, res) => {
   res.status(200).json({
-    message: 'Welcome to the Pet-Paws-Wisdom-Server API Service',
+    message: 'Welcome to the Pet Paws Wisdom Server API Service',
   });
 });
 
