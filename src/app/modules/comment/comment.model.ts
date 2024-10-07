@@ -1,7 +1,7 @@
 /* eslint-disable no-useless-escape */
 // models/Bid.ts
 import mongoose, { Schema } from 'mongoose';
-import { IBid } from './bid.interface';
+import { IBid } from './comment.interface';
 
 const bidSchema: Schema<IBid> = new mongoose.Schema({
   rentId: { type: mongoose.Schema.Types.ObjectId, ref: 'Rent', required: true },
