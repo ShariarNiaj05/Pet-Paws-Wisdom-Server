@@ -1,6 +1,6 @@
 import QueryBuilder from '../../builder/QueryBuilder';
 import { Rent } from '../Rent/rent.model';
-import { IBid } from './bid.interface';
+import { IBid } from './content.interface';
 import { Bid } from './bid.model';
 
 const createBid = async (bid: IBid) => {
@@ -40,9 +40,9 @@ const updateBidById = async (bidId: string, payload: Partial<IBid>) => {
         runValidators: true,
       },
     );
-    return newResult
+    return newResult;
   }
-  return result
+  return result;
 };
 
 const deleteBidById = async (bidId: string) => {
