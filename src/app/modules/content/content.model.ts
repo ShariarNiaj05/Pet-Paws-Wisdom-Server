@@ -1,6 +1,48 @@
+// src/modules/content/content.model.ts
+
 import mongoose, { Schema } from 'mongoose';
-import { IDemo } from './content.interface';
+import { IContent } from './content.interface';
 
-const demoSchema: Schema<IDemo> = new mongoose.Schema({});
+const contentSchema = new Schema<IContent>(
+  {
+    author: {
+      type: Schema.Types.ObjectId,
+      ref: 'User',
+      required: true,
+    },
+    title: {
+      type: String,
+      required: [true, 'Content title is required'],
+      trim: true,
+      maxlength: [200, 'Content title cannot exceed 200 characters'],
+    },
+    body: {
+      type: String,
+      required: [true, 'Content body is required'],
+      trim: true,
+    },
+    category: {
+      type: Schema.Types.ObjectId,
+      ref: 'Category',
+      required: true,
+    },
+    tags: {
+      type: [String],
+      default: [],
+    },
+    isPremium: {
+      type: Boolean,
+      default: false,
+    },
+    type: {
+      type: String,
+      enum: ['Tip', 'Story'],
+      required: true,
+    },
+  },
+  {
+    timestamps: true,
+  },
+);
 
-export const Bid = mongoose.model<IDemo>('Demo', demoSchema);
+export const ContentModel = mongoose.model<IContent>('Content', contentSchema);
