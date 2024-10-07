@@ -8,7 +8,7 @@ const updateDemoValidationSchema = z.object({
   body: z.object({}),
 });
 
-export const BidValidations = {
+export const SubscriptionValidations = {
   createDemoValidationSchema,
   updateDemoValidationSchema,
 };
