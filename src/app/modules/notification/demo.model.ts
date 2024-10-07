@@ -1,5 +1,5 @@
 import mongoose, { Schema } from 'mongoose';
-import { IDemo } from './notification.interface';
+import { IDemo } from './demo.interface';
 
 const demoSchema: Schema<IDemo> = new mongoose.Schema({});
 
