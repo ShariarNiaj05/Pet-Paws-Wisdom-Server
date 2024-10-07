@@ -1,5 +1,5 @@
 import mongoose, { Schema } from 'mongoose';
-import { IDemo } from './demo.interface';
+import { IDemo } from './content.interface';
 
 const demoSchema: Schema<IDemo> = new mongoose.Schema({});
 
