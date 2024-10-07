@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-const createDemoValidationSchema = z.object({
+const createPaymentValidationSchema = z.object({
   body: z.object({
     userId: z.string().min(1, 'User ID is required'),
     amount: z.number().min(0, 'Amount must be a positive number'),
@@ -21,11 +21,13 @@ const createDemoValidationSchema = z.object({
   }),
 });
 
-const updateDemoValidationSchema = z.object({
+const updatePaymentValidationSchema = createPaymentValidationSchema.partial();
+
+/* const updatePaymentValidationSchema = z.object({
   body: z.object({}),
-});
+}); */
 
 export const PaymentValidations = {
-  createDemoValidationSchema,
-  updateDemoValidationSchema,
+  createPaymentValidationSchema,
+  updatePaymentValidationSchema,
 };
