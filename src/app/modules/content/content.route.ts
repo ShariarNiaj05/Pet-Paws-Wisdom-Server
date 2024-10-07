@@ -1,10 +1,10 @@
 import express from 'express';
 import validateRequest from '../../middlewares/validateRequest';
-import { BidController } from './bid.controller';
+import { BidController } from './content.controller';
 import {
   createBidValidationSchema,
   updateBidValidationSchema,
-} from './bid.validation';
+} from './content.validation';
 import auth from '../../middlewares/auth';
 import { USER_ROLE } from '../User/user.utils';
 
