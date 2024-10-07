@@ -1,14 +1,28 @@
 import { z } from 'zod';
 
-const createDemoValidationSchema = z.object({
-  body: z.object({}),
+const createContentValidationSchema = z.object({
+  body: z.object({
+    author: z.string().min(1, 'Author ID is required'),
+    title: z
+      .string()
+      .min(1, 'Title is required')
+      .max(200, 'Title cannot exceed 200 characters'),
+    body: z.string().min(1, 'Body content is required'),
+    category: z.string().min(1, 'Category ID is required'),
+    tags: z.array(z.string()).optional(),
+    isPremium: z.boolean().default(false),
+    type: z.enum(['Tip', 'Story'], {
+      errorMap: () => ({ message: 'Type must be either "Tip" or "Story"' }),
+    }),
+  }),
 });
 
-const updateDemoValidationSchema = z.object({
+const updateContentValidationSchema = createContentValidationSchema.partial();
+/* const updateContentValidationSchema = z.object({
   body: z.object({}),
-});
+}); */
 
-export const BidValidations = {
-  createDemoValidationSchema,
-  updateDemoValidationSchema,
+export const ContentValidations = {
+  createContentValidationSchema,
+  updateContentValidationSchema,
 };
