@@ -15,7 +15,7 @@ const updateCategoryValidationSchema = z.object({
   body: z.object({}),
 });
 
-export const BidValidations = {
+export const CategoryValidations = {
   createCategoryValidationSchema,
   updateCategoryValidationSchema,
 };
