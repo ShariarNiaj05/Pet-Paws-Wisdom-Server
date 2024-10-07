@@ -1,11 +1,14 @@
 import { z } from 'zod';
 
-export const createDemoValidationSchema = z.object({
+const createDemoValidationSchema = z.object({
   body: z.object({}),
 });
 
-export const updateDemoValidationSchema = z.object({
+const updateDemoValidationSchema = z.object({
   body: z.object({}),
 });
 
-export const BidValidations = {};
+export const BidValidations = {
+  createDemoValidationSchema,
+  updateDemoValidationSchema,
+};
