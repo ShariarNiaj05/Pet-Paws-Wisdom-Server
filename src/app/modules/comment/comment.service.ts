@@ -1,7 +1,7 @@
 import QueryBuilder from '../../builder/QueryBuilder';
 import { Rent } from '../Rent/rent.model';
 import { IBid } from './comment.interface';
-import { Bid } from './bid.model';
+import { Bid } from './comment.model';
 
 const createBid = async (bid: IBid) => {
   return await Bid.create(bid);
