@@ -25,7 +25,7 @@ const updateNotificationValidationSchema =
   body: z.object({}),
 }); */
 
-export const BidValidations = {
+export const NotificationValidations = {
   createNotificationValidationSchema,
   updateNotificationValidationSchema,
 };
