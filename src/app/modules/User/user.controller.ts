@@ -21,7 +21,7 @@ const findUserById = catchAsync(async (req, res) => {
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'User is retrieved succesfully',
+    message: 'User is retrieved successfully',
     data: result,
   });
 });
