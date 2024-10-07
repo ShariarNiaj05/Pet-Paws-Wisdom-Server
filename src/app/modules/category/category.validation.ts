@@ -11,9 +11,10 @@ const createCategoryValidationSchema = z.object({
   }),
 });
 
-const updateCategoryValidationSchema = z.object({
-  body: z.object({}),
-});
+const updateCategoryValidationSchema = createCategoryValidationSchema.partial();
+// const updateCategoryValidationSchema = z.object({
+//   body: z.object({}),
+// });
 
 export const CategoryValidations = {
   createCategoryValidationSchema,
