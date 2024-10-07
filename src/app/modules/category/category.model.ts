@@ -1,6 +1,7 @@
 import mongoose, { Schema } from 'mongoose';
+import { ICategory } from './category.interface';
 
-const categorySchema: Schema<IDemo> = new mongoose.Schema(
+const categorySchema: Schema<ICategory> = new mongoose.Schema(
   {
     name: {
       type: String,
@@ -18,4 +19,7 @@ const categorySchema: Schema<IDemo> = new mongoose.Schema(
   },
 );
 
-export const CategoryModel = mongoose.model<IDemo>('category', categorySchema);
+export const CategoryModel = mongoose.model<ICategory>(
+  'category',
+  categorySchema,
+);
