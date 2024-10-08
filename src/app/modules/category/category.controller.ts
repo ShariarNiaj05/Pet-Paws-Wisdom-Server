@@ -25,4 +25,5 @@ const getCategoryById = catchAsync(async (req, res) => {
     data: result,
   });
 });
+
 export const CategoryController = { getAllCategories, getCategoryById };
