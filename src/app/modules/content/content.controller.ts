@@ -64,10 +64,22 @@ const deleteContent = catchAsync(async (req: Request, res: Response) => {
     data: result,
   });
 });
+
+const upvoteContent = catchAsync(async (req, res) => {
+  const result = await ContentService.upvoteContentInDB(req.params.id);
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Content upvoted successfully',
+    data: result,
+  });
+});
 export const ContentController = {
   createContent,
   getAllContents,
   getContentById,
   updateContent,
   deleteContent,
+  upvoteContent,
 };
