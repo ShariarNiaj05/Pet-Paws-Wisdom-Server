@@ -34,11 +34,11 @@ const contentSchema = new Schema<IContent>(
       type: Boolean,
       default: false,
     },
-    type: {
+    /*  type: {
       type: String,
       enum: ['Tip', 'Story'],
       required: true,
-    },
+    }, */
   },
   {
     timestamps: true,

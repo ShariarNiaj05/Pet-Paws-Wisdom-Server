@@ -7,7 +7,7 @@ export interface IContent {
   category: Types.ObjectId;
   tags?: string[];
   isPremium: boolean;
-  type: 'Tip' | 'Story';
+  // type: 'Tip' | 'Story';
   createdAt?: Date;
   updatedAt?: Date;
 }
