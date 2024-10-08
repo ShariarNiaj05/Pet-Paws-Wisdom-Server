@@ -8,6 +8,12 @@ const loginUser = catchAsync(async (req, res) => {
   const result = await AuthServices.loginUser(req.body);
   const { refreshToken, accessToken } = result;
 
+  // Set cookies using headers
+  res.setHeader('Set-Cookie', [
+    `accessToken=${accessToken}; HttpOnly; Path=/; Max-Age=604800; SameSite=Strict`, // 15 minutes
+    `refreshToken=${refreshToken}; HttpOnly; Path=/; Max-Age=604800; SameSite=Strict`, // 7 days
+  ]);
+
   /*   // Set accessToken as HTTP-only cookie
   res.cookie('accessToken', accessToken, {
     httpOnly: true,
