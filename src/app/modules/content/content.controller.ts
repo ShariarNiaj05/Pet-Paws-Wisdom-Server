@@ -55,4 +55,5 @@ export const ContentController = {
   createContent,
   getAllContents,
   getContentById,
+  updateContent,
 };
