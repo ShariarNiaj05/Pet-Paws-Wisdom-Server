@@ -19,4 +19,13 @@ const getAllContentsFromDB = async (query: Record<string, unknown>) => {
   return { result, metaData };
 };
 
-export const ContentService = { createContentIntoDB, getAllContentsFromDB };
+const getContentByIdFromDB = async (id: string) => {
+  const content = await ContentModel.findById(id);
+  return content;
+};
+
+export const ContentService = {
+  createContentIntoDB,
+  getAllContentsFromDB,
+  getContentByIdFromDB,
+};
