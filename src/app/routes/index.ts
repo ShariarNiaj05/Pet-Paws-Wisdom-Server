@@ -18,20 +18,8 @@ const moduleRoutes: TModuleRoutes[] = [
     route: UserRoutes,
   },
   {
-    path: '/cars',
-    route: CarRoutes,
-  },
-  {
-    path: '/bids',
-    route: BidRoutes,
-  },
-  {
     path: '/auth',
     route: AuthRoutes,
-  },
-  {
-    path: '/rents',
-    route: RentRoutes,
   },
 ];
 
