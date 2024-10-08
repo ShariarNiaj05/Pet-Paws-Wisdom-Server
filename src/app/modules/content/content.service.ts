@@ -24,8 +24,22 @@ const getContentByIdFromDB = async (id: string) => {
   return content;
 };
 
+const updateContentIntoDB = async (
+  id: string,
+  data: Partial<IContent>,
+  userId: string,
+) => {
+  const updatedContent = await ContentModel.findOneAndUpdate(
+    { _id: id, author: userId }, // Ensure only the author can update
+    data,
+    { new: true },
+  );
+  return updatedContent;
+};
+
 export const ContentService = {
   createContentIntoDB,
   getAllContentsFromDB,
   getContentByIdFromDB,
+  updateContentIntoDB,
 };
