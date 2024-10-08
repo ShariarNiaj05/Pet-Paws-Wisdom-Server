@@ -36,11 +36,12 @@ const contentSchema = new Schema<IContent>(
     },
     upvotes: {
       type: Number,
-      default: 0, 
+      default: 0,
     },
     downvotes: {
       type: Number,
-      default: 0, 
+      default: 0,
+    },
   },
   {
     timestamps: true,
