@@ -37,6 +37,20 @@ const getContentById = catchAsync(async (req: Request, res: Response) => {
     data: result,
   });
 });
+
+const updateContent = catchAsync(async (req: Request, res: Response) => {
+  const result = await ContentService.updateContentIntoDB(
+    req.params.id,
+    req.body,
+    req.user?._id,
+  );
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Content updated successfully',
+    data: result,
+  });
+});
 export const ContentController = {
   createContent,
   getAllContents,
