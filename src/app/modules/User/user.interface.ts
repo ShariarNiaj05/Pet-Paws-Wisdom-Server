@@ -8,7 +8,7 @@ export interface IUser {
   bio?: string;
   followers?: string[];
   following?: string[];
-  posts?: string[];
+  contents?: string[];
   upvotedPosts?: string[];
   downvotedPosts?: string[];
   createdAt?: Date;
