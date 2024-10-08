@@ -32,4 +32,6 @@ router.delete(
 
 router.put('/:id/upvote', ContentController.upvoteContent);
 
+router.put('/:id/downvote', ContentController.downvoteContent);
+
 export const ContentRoutes = router;
