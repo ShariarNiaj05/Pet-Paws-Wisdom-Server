@@ -17,4 +17,12 @@ const getAllCategoriesFromDB = async (query: Record<string, unknown>) => {
   };
 };
 
-export const CategoryService = { getAllCategoriesFromDB };
+const getCategoryByIdFromDB = async (id: string) => {
+  const category = await CategoryModel.findById(id);
+  return category;
+};
+
+export const CategoryService = {
+  getAllCategoriesFromDB,
+  getCategoryByIdFromDB,
+};
