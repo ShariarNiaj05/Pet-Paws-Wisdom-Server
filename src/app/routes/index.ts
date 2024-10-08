@@ -2,6 +2,7 @@ import { Router } from 'express';
 import { AuthRoutes } from '../modules/Auth/auth.route';
 import { UserRoutes } from '../modules/User/user.route';
 import { CategoryRoutes } from '../modules/category/category.route';
+import { ContentRoutes } from '../modules/content/content.route';
 
 type TModuleRoutes = {
   path: string;
@@ -22,6 +23,10 @@ const moduleRoutes: TModuleRoutes[] = [
   {
     path: '/category',
     route: CategoryRoutes,
+  },
+  {
+    path: '/content',
+    route: ContentRoutes,
   },
 ];
 
