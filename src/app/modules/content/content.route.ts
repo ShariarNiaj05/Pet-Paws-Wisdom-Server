@@ -17,4 +17,11 @@ router.get('/', ContentController.getAllContents);
 
 router.get('/:id', ContentController.getContentById);
 
+router.put(
+  '/:id',
+  auth(USER_ROLE.user),
+  validateRequest(ContentValidations.updateContentValidationSchema),
+  ContentController.updateContent,
+);
+
 export const ContentRoutes = router;
