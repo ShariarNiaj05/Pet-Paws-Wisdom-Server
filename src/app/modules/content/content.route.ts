@@ -15,4 +15,6 @@ router.post(
 
 router.get('/', ContentController.getAllContents);
 
+router.get('/:id', ContentController.getContentById);
+
 export const ContentRoutes = router;
