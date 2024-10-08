@@ -35,9 +35,14 @@ const updateCategoryIntoDB = async (id: string, data: Partial<ICategory>) => {
   return updatedCategory;
 };
 
+const deleteCategoryFrmDB = async (id: string) => {
+  await CategoryModel.findByIdAndDelete(id);
+};
+
 export const CategoryService = {
   getAllCategoriesFromDB,
   getCategoryByIdFromDB,
   createCategoryIntoDB,
   updateCategoryIntoDB,
+  deleteCategoryFrmDB,
 };
