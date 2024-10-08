@@ -28,4 +28,17 @@ const getAllContents = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-export const ContentController = { createContent, getAllContents };
+const getContentById = catchAsync(async (req: Request, res: Response) => {
+  const result = await ContentService.getContentByIdFromDB(req.params.id);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Content retrieved successfully',
+    data: result,
+  });
+});
+export const ContentController = {
+  createContent,
+  getAllContents,
+  getContentById,
+};
