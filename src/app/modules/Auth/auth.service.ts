@@ -70,7 +70,6 @@ const loginUser = async (payload: TLoginUser) => {
       refreshToken,
     };
   }
-  // checking if the user is already deleted
 };
 
 const refreshToken = async (token: string) => {
