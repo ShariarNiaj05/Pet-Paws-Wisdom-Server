@@ -19,4 +19,4 @@ const getAllContentsFromDB = async (query: Record<string, unknown>) => {
   return { result, metaData };
 };
 
-export const ContentService = { createContentIntoDB };
+export const ContentService = { createContentIntoDB, getAllContentsFromDB };
