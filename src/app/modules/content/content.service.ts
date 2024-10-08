@@ -6,4 +6,4 @@ const createContentIntoDB = async (data: IContent, userId: string) => {
   return newContent;
 };
 
-export const ContentService = {};
+export const ContentService = { createContentIntoDB };
