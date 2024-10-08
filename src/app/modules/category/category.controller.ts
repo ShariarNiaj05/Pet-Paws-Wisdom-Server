@@ -14,4 +14,15 @@ const getAllCategories = catchAsync(async (req, res) => {
     data: result.data,
   });
 });
-export const CategoryController = { getAllCategories };
+
+const getCategoryById = catchAsync(async (req, res) => {
+  const result = await CategoryService.getCategoryByIdFromDB(req.params.id);
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Category retrieved successfully',
+    data: result,
+  });
+});
+export const CategoryController = { getAllCategories, getCategoryById };
