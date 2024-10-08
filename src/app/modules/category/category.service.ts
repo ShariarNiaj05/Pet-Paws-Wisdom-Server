@@ -34,6 +34,7 @@ const updateCategoryIntoDB = async (id: string, data: Partial<ICategory>) => {
   });
   return updatedCategory;
 };
+
 export const CategoryService = {
   getAllCategoriesFromDB,
   getCategoryByIdFromDB,
