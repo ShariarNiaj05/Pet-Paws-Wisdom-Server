@@ -35,8 +35,8 @@ const userSchema: Schema<IUser> = new mongoose.Schema({
   followers: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
   following: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
   contents: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Content' }],
-  upvotedPosts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Content' }],
-  downvotedPosts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Content' }],
+  upvotedContents: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Content' }],
+  downvotedContents: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Content' }],
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
 });
