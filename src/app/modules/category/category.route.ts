@@ -15,4 +15,11 @@ router.post(
   CategoryController.createCategory,
 );
 
+router.put(
+  '/:id',
+  auth(USER_ROLE.admin),
+  validateRequest(CategoryValidations.createCategoryValidationSchema),
+  CategoryController.updateCategory,
+);
+
 export const CategoryRoutes = router;
