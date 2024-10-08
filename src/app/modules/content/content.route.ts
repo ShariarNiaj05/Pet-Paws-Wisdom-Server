@@ -24,4 +24,10 @@ router.put(
   ContentController.updateContent,
 );
 
+router.delete(
+  '/:id',
+  auth(USER_ROLE.user, USER_ROLE.admin),
+  ContentController.deleteContent,
+);
+
 export const ContentRoutes = router;
