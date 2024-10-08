@@ -54,6 +54,14 @@ const upvoteContentIntoDB = async (id: string) => {
   return updatedContent;
 };
 
+const downvoteContentIntoDB = async (id: string) => {
+  const updatedContent = await ContentModel.findByIdAndUpdate(
+    id,
+    { $inc: { downvotes: 1 } },
+    { new: true },
+  );
+  return updatedContent;
+};
 export const ContentService = {
   createContentIntoDB,
   getAllContentsFromDB,
@@ -61,4 +69,5 @@ export const ContentService = {
   updateContentIntoDB,
   deleteContentFrmDB,
   upvoteContentIntoDB,
+  downvoteContentIntoDB,
 };
