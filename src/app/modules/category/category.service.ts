@@ -28,8 +28,15 @@ const createCategoryIntoDB = async (data: ICategory) => {
   return category;
 };
 
+const updateCategoryIntoDB = async (id: string, data: Partial<ICategory>) => {
+  const updatedCategory = await CategoryModel.findByIdAndUpdate(id, data, {
+    new: true,
+  });
+  return updatedCategory;
+};
 export const CategoryService = {
   getAllCategoriesFromDB,
   getCategoryByIdFromDB,
   createCategoryIntoDB,
+  updateCategoryIntoDB,
 };
