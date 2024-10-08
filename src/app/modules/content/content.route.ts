@@ -13,4 +13,6 @@ router.post(
   ContentController.createContent,
 );
 
+router.get('/', ContentController.getAllContents);
+
 export const ContentRoutes = router;
