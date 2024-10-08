@@ -1,11 +1,18 @@
 import { Types } from 'mongoose';
 
 export interface IUser {
+  _id?: string;
   name: string;
-  img: string;
-  rating: number;
   email: string;
   password: string;
-  role: 'admin' | 'user';
-  rents: Types.ObjectId;
+  role: 'user' | 'admin';
+  profilePicture?: string;
+  bio?: string;
+  followers?: string[];
+  following?: string[];
+  posts?: string[];
+  upvotedPosts?: string[];
+  downvotedPosts?: string[];
+  createdAt?: Date;
+  updatedAt?: Date;
 }
