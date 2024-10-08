@@ -1,4 +1,5 @@
 import QueryBuilder from '../../builder/QueryBuilder';
+import { ICategory } from './category.interface';
 import { CategoryModel } from './category.model';
 
 const getAllCategoriesFromDB = async (query: Record<string, unknown>) => {
@@ -22,7 +23,13 @@ const getCategoryByIdFromDB = async (id: string) => {
   return category;
 };
 
+const createCategoryIntoDB = async (data: ICategory) => {
+  const category = await CategoryModel.create(data);
+  return category;
+};
+
 export const CategoryService = {
   getAllCategoriesFromDB,
   getCategoryByIdFromDB,
+  createCategoryIntoDB,
 };
