@@ -51,9 +51,23 @@ const updateContent = catchAsync(async (req: Request, res: Response) => {
     data: result,
   });
 });
+
+const deleteContent = catchAsync(async (req: Request, res: Response) => {
+  const result = await ContentService.deleteContentFrmDB(
+    req.params.id,
+    req.user?._id,
+  );
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Content deleted successfully',
+    data: result,
+  });
+});
 export const ContentController = {
   createContent,
   getAllContents,
   getContentById,
   updateContent,
+  deleteContent,
 };

@@ -37,9 +37,17 @@ const updateContentIntoDB = async (
   return updatedContent;
 };
 
+const deleteContentFrmDB = async (id: string, userId: string) => {
+  const deletedContent = await ContentModel.findOneAndDelete({
+    _id: id,
+    author: userId,
+  });
+  return deletedContent;
+};
 export const ContentService = {
   createContentIntoDB,
   getAllContentsFromDB,
   getContentByIdFromDB,
   updateContentIntoDB,
+  deleteContentFrmDB,
 };
