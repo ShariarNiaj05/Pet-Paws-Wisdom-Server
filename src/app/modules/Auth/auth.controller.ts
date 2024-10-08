@@ -2,17 +2,23 @@ import httpStatus from 'http-status';
 import catchAsync from '../../utils/catchAsync';
 import sendResponse from '../../utils/sendResponse';
 import { AuthServices } from './auth.service';
+import config from '../../config';
+import jwt, { JwtPayload } from 'jsonwebtoken';
+import { User } from '../User/user.model';
+import AppError from '../../errors/AppError';
 // import config from '../../config';
 
 const loginUser = catchAsync(async (req, res) => {
+  const user = await User.findOne({ email: req?.body?.email });
+
   const result = await AuthServices.loginUser(req.body);
   const { refreshToken, accessToken } = result;
 
-  // Set cookies using headers
+  /* // Set cookies using headers
   res.setHeader('Set-Cookie', [
     `accessToken=${accessToken}; HttpOnly; Path=/; Max-Age=604800; SameSite=Strict`, // 15 minutes
     `refreshToken=${refreshToken}; HttpOnly; Path=/; Max-Age=604800; SameSite=Strict`, // 7 days
-  ]);
+  ]); */
 
   /*   // Set accessToken as HTTP-only cookie
   res.cookie('accessToken', accessToken, {
@@ -30,10 +36,28 @@ const loginUser = catchAsync(async (req, res) => {
     maxAge: 1000 * 60 * 60 * 24 * 7, // 7 days expiration
   }); */
 
+  const decoded = jwt.verify(
+    // tokenSplit[1],
+    accessToken,
+    config.jwt_access_secret as string,
+  ) as JwtPayload;
+
+  const { email: decodedEmail } = decoded;
+
+  if (user?.email !== decodedEmail) {
+    throw new AppError(httpStatus.UNAUTHORIZED, 'Mis Information');
+  }
+
+  res.cookie('accessToken', accessToken, {
+    secure: config.NODE_ENV === 'production',
+    httpOnly: true,
+  });
+
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
     message: 'User is logged in successfully!',
+    token: accessToken,
     data: {
       accessToken,
       refreshToken,
