@@ -66,7 +66,7 @@ const deleteContent = catchAsync(async (req: Request, res: Response) => {
 });
 
 const upvoteContent = catchAsync(async (req, res) => {
-  const result = await ContentService.upvoteContentInDB(req.params.id);
+  const result = await ContentService.upvoteContentIntoDB(req.params.id);
 
   sendResponse(res, {
     statusCode: httpStatus.OK,
