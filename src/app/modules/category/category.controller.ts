@@ -2,8 +2,9 @@ import httpStatus from 'http-status';
 import catchAsync from '../../utils/catchAsync';
 import sendResponse from '../../utils/sendResponse';
 import { CategoryService } from './category.service';
+import { Request, Response } from 'express';
 
-const getAllCategories = catchAsync(async (req, res) => {
+const getAllCategories = catchAsync(async (req: Request, res: Response) => {
   const result = await CategoryService.getAllCategoriesFromDB(req.query);
 
   sendResponse(res, {
@@ -15,7 +16,7 @@ const getAllCategories = catchAsync(async (req, res) => {
   });
 });
 
-const getCategoryById = catchAsync(async (req, res) => {
+const getCategoryById = catchAsync(async (req: Request, res: Response) => {
   const result = await CategoryService.getCategoryByIdFromDB(req.params.id);
 
   sendResponse(res, {
@@ -26,7 +27,7 @@ const getCategoryById = catchAsync(async (req, res) => {
   });
 });
 
-const createCategory = catchAsync(async (req, res) => {
+const createCategory = catchAsync(async (req: Request, res: Response) => {
   const result = await CategoryService.createCategoryIntoDB(req.body);
 
   sendResponse(res, {
@@ -37,7 +38,7 @@ const createCategory = catchAsync(async (req, res) => {
   });
 });
 
-const updateCategory = catchAsync(async (req, res) => {
+const updateCategory = catchAsync(async (req: Request, res: Response) => {
   const result = await CategoryService.updateCategoryIntoDB(
     req.params.id,
     req.body,
@@ -51,7 +52,7 @@ const updateCategory = catchAsync(async (req, res) => {
   });
 });
 
-const deleteCategory = catchAsync(async (req, res) => {
+const deleteCategory = catchAsync(async (req: Request, res: Response) => {
   const result = await CategoryService.deleteCategoryFrmDB(req.params.id);
 
   sendResponse(res, {
