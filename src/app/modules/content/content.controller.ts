@@ -93,4 +93,5 @@ export const ContentController = {
   updateContent,
   deleteContent,
   upvoteContent,
+  downvoteContent,
 };
