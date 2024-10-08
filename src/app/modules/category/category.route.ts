@@ -18,7 +18,7 @@ router.post(
 router.put(
   '/:id',
   auth(USER_ROLE.admin),
-  validateRequest(CategoryValidations.createCategoryValidationSchema),
+  validateRequest(CategoryValidations.updateCategoryValidationSchema),
   CategoryController.updateCategory,
 );
 
