@@ -10,6 +10,7 @@ import catchAsync from '../utils/catchAsync';
 const auth = (...requiredRoles: (keyof typeof USER_ROLE)[]) => {
   return catchAsync(async (req: Request, res: Response, next: NextFunction) => {
     const token = req.headers.authorization;
+    // const token = req.cookies.accessToken;
 
     // checking if the token is missing
     if (!token) {
