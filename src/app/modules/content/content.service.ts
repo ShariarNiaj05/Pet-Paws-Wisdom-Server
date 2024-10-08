@@ -45,15 +45,15 @@ const deleteContentFrmDB = async (id: string, userId: string) => {
   return deletedContent;
 };
 
-const upvoteContentIntoDB = async (id: string, userId: string) => {
-  const content = await ContentModel.findById(id);
-  if (content) {
-    content.upvotes.push(userId);
-    content.downvotes = content.downvotes.filter((vote) => vote !== userId);
-    await content.save();
-  }
-  return content;
+const upvoteContentIntoDB = async (id: string) => {
+  const updatedContent = await ContentModel.findByIdAndUpdate(
+    id,
+    { $inc: { upvotes: 1 } },
+    { new: true },
+  );
+  return updatedContent;
 };
+
 export const ContentService = {
   createContentIntoDB,
   getAllContentsFromDB,
