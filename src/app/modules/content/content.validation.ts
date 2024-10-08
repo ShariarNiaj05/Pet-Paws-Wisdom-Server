@@ -11,9 +11,9 @@ const createContentValidationSchema = z.object({
     category: z.string().min(1, 'Category ID is required'),
     tags: z.array(z.string()).optional(),
     isPremium: z.boolean().default(false),
-    type: z.enum(['Tip', 'Story'], {
+    /* type: z.enum(['Tip', 'Story'], {
       errorMap: () => ({ message: 'Type must be either "Tip" or "Story"' }),
-    }),
+    }), */
   }),
 });
 
