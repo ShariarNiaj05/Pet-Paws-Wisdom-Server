@@ -75,6 +75,17 @@ const upvoteContent = catchAsync(async (req, res) => {
     data: result,
   });
 });
+
+const downvoteContent = catchAsync(async (req, res) => {
+  const result = await ContentService.downvoteContentIntoDB(req.params.id);
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Content downvoted successfully',
+    data: result,
+  });
+});
 export const ContentController = {
   createContent,
   getAllContents,
