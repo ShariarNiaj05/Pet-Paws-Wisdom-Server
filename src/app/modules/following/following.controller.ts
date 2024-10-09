@@ -1,1 +1,1 @@
-export const followingController = {};
+export const FollowingServiceController = {};
