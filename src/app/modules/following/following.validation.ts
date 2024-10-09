@@ -1,10 +1,12 @@
 import { z } from 'zod';
 
-const createDemoValidationSchema = z.object({
-  body: z.object({}),
+const createFollowingValidationSchema = z.object({
+  body: z.object({
+    userId: z.string().nonempty('User ID is required'),
+  }),
 });
 
-const updateDemoValidationSchema = z.object({
+const updateFollowingValidationSchema = z.object({
   body: z.object({}),
 });
 
