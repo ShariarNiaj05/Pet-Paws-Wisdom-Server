@@ -35,4 +35,4 @@ const unFollowUser = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-export const FollowingServiceController = { followUser, unFollowUser };
+export const FollowingController = { followUser, unFollowUser };
