@@ -34,7 +34,7 @@ const subscriptionSchema = new Schema<ISubscription>(
     },
   },
   {
-    timestamps: true, // Automatically creates `createdAt` and `updatedAt` fields
+    timestamps: true,
   },
 );
 
