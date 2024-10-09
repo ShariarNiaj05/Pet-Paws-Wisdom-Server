@@ -1,3 +1,4 @@
+import { IComment } from './comment.interface';
 import { CommentModel } from './comment.model';
 
 const getAllCommentsFromDB = async (contentId: string) => {
@@ -6,4 +7,11 @@ const getAllCommentsFromDB = async (contentId: string) => {
     .exec();
   return comments;
 };
-export const CommentService = { getAllCommentsFromDB };
+
+const createCommentIntoDB = async (data: IComment) => {
+  const comment = new CommentModel(data);
+  await comment.save();
+  return comment;
+};
+
+export const CommentService = { getAllCommentsFromDB, createCommentIntoDB };
