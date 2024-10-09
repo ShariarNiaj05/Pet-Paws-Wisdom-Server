@@ -18,4 +18,21 @@ const followUser = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const unfollowUser = catchAsync(async (req: Request, res: Response) => {
+  const userId = req.user._id;
+  const targetUserId = req.params.userId;
+
+  const result = await FollowingService.unFollowUserIntoDB(
+    userId,
+    targetUserId,
+  );
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Unfollowed user successfully',
+    data: result,
+  });
+});
+
 export const FollowingServiceController = { followUser };
