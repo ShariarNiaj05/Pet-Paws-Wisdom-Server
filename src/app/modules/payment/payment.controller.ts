@@ -1,5 +1,7 @@
 import { Request, Response } from 'express';
 import catchAsync from '../../utils/catchAsync';
+import { PaymentService } from './payment.service';
+import httpStatus from 'http-status';
 
 const getPaymentsByUser = catchAsync(async (req: Request, res: Response) => {
   const { userId } = req.params;
