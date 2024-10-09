@@ -18,7 +18,7 @@ const followUser = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-const unfollowUser = catchAsync(async (req: Request, res: Response) => {
+const unFollowUser = catchAsync(async (req: Request, res: Response) => {
   const userId = req.user._id;
   const targetUserId = req.params.userId;
 
@@ -35,4 +35,4 @@ const unfollowUser = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-export const FollowingServiceController = { followUser };
+export const FollowingServiceController = { followUser, unFollowUser };
