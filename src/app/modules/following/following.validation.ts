@@ -11,6 +11,6 @@ const updateFollowingValidationSchema = z.object({
 });
 
 export const BidValidations = {
-  createDemoValidationSchema,
-  updateDemoValidationSchema,
+  createFollowingValidationSchema,
+  updateFollowingValidationSchema,
 };
