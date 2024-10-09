@@ -1,5 +1,7 @@
+import { Types } from 'mongoose';
+
 export interface IFollowing {
-  userId: string;
+  userId: Types.ObjectId;
   following: string[];
   followers: string[];
 }
