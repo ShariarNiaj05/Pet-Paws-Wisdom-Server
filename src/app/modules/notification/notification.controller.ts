@@ -32,7 +32,23 @@ const getNotificationsByUserId = catchAsync(
     });
   },
 );
+
+const markNotificationAsRead = catchAsync(
+  async (req: Request, res: Response) => {
+    const notification = await NotificationService.markNotificationAsReadIntoDB(
+      req.params.id,
+    );
+
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: 'Notification marked as read successfully',
+      data: notification,
+    });
+  },
+);
 export const NotificationController = {
   createNotification,
   getNotificationsByUserId,
+  markNotificationAsRead,
 };
