@@ -1,6 +1,34 @@
 import mongoose, { Schema } from 'mongoose';
-import { IDemo } from './following.interface';
+import { IFollowing } from './following.interface';
 
-const demoSchema: Schema<IDemo> = new mongoose.Schema({});
+const followingSchema = new Schema<IFollowing>(
+  {
+    userId: {
+      type: Schema.Types.ObjectId,
+      ref: 'User',
+      required: true,
+    },
+    following: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: true,
+      },
+    ],
+    followers: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: true,
+      },
+    ],
+  },
+  {
+    timestamps: true, // Adds createdAt and updatedAt timestamps automatically
+  },
+);
 
-export const Following = mongoose.model<IDemo>('Demo', demoSchema);
+export const FollowingModel = mongoose.model<IFollowing>(
+  'Following',
+  followingSchema,
+);
