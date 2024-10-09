@@ -11,4 +11,6 @@ router.post('/', auth(USER_ROLE.user), CommentController.createComment);
 
 router.put('/:id', auth(USER_ROLE.user), CommentController.updateComment);
 
+router.delete('/:id', auth(USER_ROLE.user), CommentController.deleteComment);
+
 export const CommentRoutes = router;
