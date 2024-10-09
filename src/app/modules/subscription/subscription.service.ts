@@ -26,4 +26,7 @@ const cancelSubscriptionFrmDB = async (
   );
   return subscription;
 };
-export const SubscriptionService = { createSubscriptionIntoDB };
+export const SubscriptionService = {
+  createSubscriptionIntoDB,
+  cancelSubscriptionFrmDB,
+};
