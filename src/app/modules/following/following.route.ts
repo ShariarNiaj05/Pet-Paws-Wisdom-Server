@@ -23,4 +23,10 @@ router.get(
   FollowingController.getFollowers,
 );
 
+router.get(
+  '/following/:userId',
+  auth(USER_ROLE.user),
+  FollowingController.getFollowing,
+);
+
 export const FollowingServiceRoutes = router;
