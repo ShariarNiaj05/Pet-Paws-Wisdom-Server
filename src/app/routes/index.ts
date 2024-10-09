@@ -1,3 +1,4 @@
+import { PaymentRoutes } from './../modules/payment/payment.route';
 import { Router } from 'express';
 import { AuthRoutes } from '../modules/Auth/auth.route';
 import { UserRoutes } from '../modules/User/user.route';
@@ -42,6 +43,10 @@ const moduleRoutes: TModuleRoutes[] = [
   {
     path: '/notification',
     route: NotificationRoutes,
+  },
+  {
+    path: '/payment',
+    route: PaymentRoutes,
   },
 ];
 
