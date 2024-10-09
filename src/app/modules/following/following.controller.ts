@@ -8,7 +8,7 @@ const followUser = catchAsync(async (req: Request, res: Response) => {
   const userId = req.user._id;
   const targetUserId = req.params.userId;
 
-  const result = await FollowingService.followUser(userId, targetUserId);
+  const result = await FollowingService.followUserIntoDB(userId, targetUserId);
 
   sendResponse(res, {
     statusCode: httpStatus.OK,
