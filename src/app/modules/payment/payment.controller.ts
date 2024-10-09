@@ -17,4 +17,18 @@ const getPaymentsByUser = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+/* 
+const createPaymentIntent = catchAsync(async (req: Request, res: Response) => {
+    const { amount, currency, paymentMethod } = req.body;
+    const userId = req.user._id;
+  
+    const result = await PaymentService.createPaymentIntent(userId, amount, currency, paymentMethod);
+  
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: 'Payment intent created successfully',
+      data: result,
+    });
+  }); */
 export const PaymentController = { getPaymentsByUser };
