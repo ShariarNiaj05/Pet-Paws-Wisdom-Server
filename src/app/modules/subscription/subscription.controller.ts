@@ -21,4 +21,4 @@ const createSubscription = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-export const SubscriptionController = {};
+export const SubscriptionController = { createSubscription };
