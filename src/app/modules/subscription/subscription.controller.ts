@@ -33,7 +33,23 @@ const cancelSubscription = catchAsync(async (req: Request, res: Response) => {
     data: result,
   });
 });
+
+const getActiveSubscription = catchAsync(
+  async (req: Request, res: Response) => {
+    const result = await SubscriptionService.getActiveSubscriptionFromDB(
+      req.user._id,
+    );
+
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: 'Active subscription retrieved successfully',
+      data: result,
+    });
+  },
+);
 export const SubscriptionController = {
   createSubscription,
   cancelSubscription,
+  getActiveSubscription,
 };

@@ -18,4 +18,10 @@ router.post(
   auth(USER_ROLE.user),
   SubscriptionController.cancelSubscription,
 );
+
+router.get(
+  '/active',
+  auth(USER_ROLE.admin),
+  SubscriptionController.getActiveSubscription,
+);
 export const SubscriptionRoutes = router;
