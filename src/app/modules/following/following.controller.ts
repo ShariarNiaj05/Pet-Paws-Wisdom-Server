@@ -30,7 +30,7 @@ const unFollowUser = catchAsync(async (req: Request, res: Response) => {
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Unfollowed user successfully',
+    message: 'Un-followed user successfully',
     data: result,
   });
 });
