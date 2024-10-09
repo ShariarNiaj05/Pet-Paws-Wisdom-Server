@@ -1,6 +1,9 @@
 import express from 'express';
 import auth from '../../middlewares/auth';
 import { USER_ROLE } from '../User/user.utils';
+import validateRequest from '../../middlewares/validateRequest';
+import { SubscriptionValidations } from './subscription.validation';
+import { SubscriptionController } from './subscription.controller';
 
 const router = express.Router();
 router.post(
