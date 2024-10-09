@@ -4,10 +4,7 @@ import { UserRoutes } from '../modules/User/user.route';
 import { CategoryRoutes } from '../modules/category/category.route';
 import { ContentRoutes } from '../modules/content/content.route';
 import { CommentRoutes } from '../modules/comment/comment.route';
-import {
-  FollowingRoutes,
-  FollowingServiceRoutes,
-} from '../modules/following/following.route';
+import { FollowingRoutes } from '../modules/following/following.route';
 
 type TModuleRoutes = {
   path: string;
