@@ -1,10 +1,16 @@
+import catchAsync from '../../utils/catchAsync';
 import { CommentModel } from './comment.model';
 
-const getAllCommentsFromDB = async (contentId: string) => {
-  const comments = await CommentModel.find({ content: contentId })
-    .populate('user', 'name') // Populate user info, like name
-    .exec();
-  return comments;
-};
+const getAllComments = catchAsync(async (req: Request, res: Response) => {
+  const { contentId } = req.params;
+  const result = await CommentService.getAllCommentsFromDB(contentId);
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Comments retrieved successfully',
+    data: result,
+  });
+});
 
 export const CommentController = { getAllCommentsFromDB };
