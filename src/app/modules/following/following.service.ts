@@ -62,7 +62,7 @@ const unFollowUserIntoDB = async (userId: string, targetUserId: string) => {
   return { following: user.following, followers: targetUser.followers };
 };
 
-const getFollowers = async (userId: string) => {
+const getFollowersFromDB = async (userId: string) => {
   const user = await User.findById(userId).populate(
     'followers',
     'name profilePicture',
@@ -73,4 +73,8 @@ const getFollowers = async (userId: string) => {
 
   return user.followers;
 };
-export const FollowingService = { followUserIntoDB, unFollowUserIntoDB };
+export const FollowingService = {
+  followUserIntoDB,
+  unFollowUserIntoDB,
+  getFollowersFromDB,
+};
