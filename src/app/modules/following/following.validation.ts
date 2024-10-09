@@ -12,9 +12,11 @@ const createFollowingValidationSchema = z.object({
   }),
 });
 
-const updateFollowingValidationSchema = z.object({
+const updateFollowingValidationSchema =
+  createFollowingValidationSchema.partial();
+/* const updateFollowingValidationSchema = z.object({
   body: z.object({}),
-});
+}); */
 
 export const BidValidations = {
   createFollowingValidationSchema,
