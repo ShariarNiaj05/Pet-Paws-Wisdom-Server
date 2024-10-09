@@ -7,4 +7,4 @@ const getAllCommentsFromDB = async (contentId: string) => {
   return comments;
 };
 
-export const CommentController = {};
+export const CommentController = { getAllCommentsFromDB };
