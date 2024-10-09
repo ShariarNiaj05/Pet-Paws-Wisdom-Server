@@ -15,4 +15,6 @@ router.get('/:userId', NotificationController.getNotificationsByUserId);
 
 router.put('/:id/read', NotificationController.markNotificationAsRead);
 
+router.delete('/:id', NotificationController.deleteNotification);
+
 export const NotificationRoutes = router;
