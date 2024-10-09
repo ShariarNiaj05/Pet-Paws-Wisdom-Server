@@ -9,7 +9,7 @@ const router = express.Router();
 router.post(
   '/create',
   auth(USER_ROLE.user),
-  validateRequest(SubscriptionValidations.createSubscriptionSchema),
+  validateRequest(SubscriptionValidations.createSubscriptionValidationSchema),
   SubscriptionController.createSubscription,
 );
 export const SubscriptionRoutes = router;
