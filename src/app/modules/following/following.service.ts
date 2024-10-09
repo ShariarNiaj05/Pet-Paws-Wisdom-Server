@@ -17,12 +17,12 @@ const followUserIntoDB = async (userId: string, targetUserId: string) => {
     throw new AppError(httpStatus.NOT_FOUND, 'User not found');
   }
 
-  if (user.following.includes(targetUserId)) {
+  if (user.following!.includes(targetUserId)) {
     throw new Error('Already following this user');
   }
 
-  user.following.push(targetUserId);
-  targetUser.followers.push(userId);
+  user.following!.push(targetUserId);
+  targetUser.followers!.push(userId);
 
   await user.save();
   await targetUser.save();
