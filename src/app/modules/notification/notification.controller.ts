@@ -49,12 +49,15 @@ const markNotificationAsRead = catchAsync(
 );
 
 const deleteNotification = catchAsync(async (req: Request, res: Response) => {
-  await NotificationService.deleteNotificationFromDB(req.params.id);
+  const result = await NotificationService.deleteNotificationFromDB(
+    req.params.id,
+  );
 
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
     message: 'Notification deleted successfully',
+    data: result,
   });
 });
 
