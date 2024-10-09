@@ -12,4 +12,10 @@ router.post(
   validateRequest(SubscriptionValidations.createSubscriptionValidationSchema),
   SubscriptionController.createSubscription,
 );
+
+router.post(
+  '/cancel',
+  auth(USER_ROLE.user),
+  SubscriptionController.cancelSubscription,
+);
 export const SubscriptionRoutes = router;
