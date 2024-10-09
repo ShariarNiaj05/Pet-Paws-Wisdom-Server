@@ -29,4 +29,4 @@ router.get(
   FollowingController.getFollowing,
 );
 
-export const FollowingServiceRoutes = router;
+export const FollowingRoutes = router;
