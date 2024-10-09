@@ -16,4 +16,4 @@ const createSubscriptionIntoDB = async (
   return newSubscription;
 };
 
-export const SubscriptionService = {};
+export const SubscriptionService = { createSubscriptionIntoDB };
