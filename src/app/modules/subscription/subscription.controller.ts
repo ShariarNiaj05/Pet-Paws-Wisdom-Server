@@ -33,4 +33,7 @@ const cancelSubscription = catchAsync(async (req: Request, res: Response) => {
     data: result,
   });
 });
-export const SubscriptionController = { createSubscription };
+export const SubscriptionController = {
+  createSubscription,
+  cancelSubscription,
+};
