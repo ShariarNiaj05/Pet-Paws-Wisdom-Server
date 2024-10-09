@@ -16,4 +16,4 @@ const getAllComments = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-export const CommentController = { getAllCommentsFromDB };
+export const CommentController = { getAllComments };
