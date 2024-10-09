@@ -16,4 +16,14 @@ const createSubscriptionIntoDB = async (
   return newSubscription;
 };
 
+const cancelSubscriptionFrmDB = async (
+  userId: string,
+): Promise<ISubscription | null> => {
+  const subscription = await SubscriptionModel.findOneAndUpdate(
+    { user: userId, isActive: true },
+    { isActive: false },
+    { new: true },
+  );
+  return subscription;
+};
 export const SubscriptionService = { createSubscriptionIntoDB };
