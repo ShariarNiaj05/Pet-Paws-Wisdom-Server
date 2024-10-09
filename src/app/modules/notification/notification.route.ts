@@ -7,7 +7,9 @@ import httpStatus from 'http-status';
 const router = express.Router();
 
 const createNotification = catchAsync(async (req: Request, res: Response) => {
-  const notification = await NotificationService.createNotification(req.body);
+  const notification = await NotificationService.createNotificationIntoDB(
+    req.body,
+  );
 
   sendResponse(res, {
     statusCode: httpStatus.CREATED,
