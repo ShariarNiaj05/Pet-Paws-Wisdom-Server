@@ -21,8 +21,12 @@ const updateCommentIntoDB = async (id: string, data: Partial<IComment>) => {
   return updatedComment;
 };
 
+const deleteCommentFrmDB = async (id: string) => {
+  await CommentModel.findByIdAndDelete(id);
+};
 export const CommentService = {
   getAllCommentsFromDB,
   createCommentIntoDB,
   updateCommentIntoDB,
+  deleteCommentFrmDB,
 };
