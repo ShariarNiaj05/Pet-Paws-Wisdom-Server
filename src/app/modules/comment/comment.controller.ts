@@ -16,4 +16,14 @@ const getAllComments = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-export const CommentController = { getAllComments };
+const createComment = catchAsync(async (req: Request, res: Response) => {
+  const result = await CommentService.createCommentIntoDB(req.body);
+
+  sendResponse(res, {
+    statusCode: httpStatus.CREATED,
+    success: true,
+    message: 'Comment created successfully',
+    data: result,
+  });
+});
+export const CommentController = { getAllComments, createComment };
