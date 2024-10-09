@@ -39,4 +39,5 @@ const getActiveSubscriptionFromDB = async (
 export const SubscriptionService = {
   createSubscriptionIntoDB,
   cancelSubscriptionFrmDB,
+  getActiveSubscriptionFromDB,
 };
