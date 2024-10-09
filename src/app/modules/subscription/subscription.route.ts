@@ -24,4 +24,11 @@ router.get(
   auth(USER_ROLE.admin),
   SubscriptionController.getActiveSubscription,
 );
+
+router.post(
+  '/renew',
+  auth(USER_ROLE.user),
+  validateRequest(SubscriptionValidations.updateSubscriptionValidationSchema),
+  SubscriptionController.renewSubscription,
+);
 export const SubscriptionRoutes = router;
