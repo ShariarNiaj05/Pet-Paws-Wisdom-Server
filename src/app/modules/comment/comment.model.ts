@@ -8,16 +8,16 @@ const commentSchema = new Schema<IComment>(
       ref: 'User',
       required: true,
     },
-    post: {
+    content: {
       type: Schema.Types.ObjectId,
-      ref: 'Post',
+      ref: 'Content',
       required: true,
     },
-    content: {
+    comment: {
       type: String,
-      required: [true, 'Comment content is required'],
+      required: [true, 'Comment is required'],
       trim: true,
-      maxlength: [1000, 'Comment content cannot exceed 1000 characters'],
+      maxlength: [1000, 'Comment cannot exceed 1000 characters'],
     },
   },
   {

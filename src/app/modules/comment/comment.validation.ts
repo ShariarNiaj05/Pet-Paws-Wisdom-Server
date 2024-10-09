@@ -3,11 +3,11 @@ import { z } from 'zod';
 const createCommentValidationSchema = z.object({
   body: z.object({
     user: z.string().min(1, 'User ID is required'),
-    post: z.string().min(1, 'Post ID is required'),
-    content: z
+    content: z.string().min(1, 'Content ID is required'),
+    comment: z
       .string()
-      .min(1, 'Comment content cannot be empty')
-      .max(1000, 'Comment content cannot exceed 1000 characters'),
+      .min(1, 'Comment cannot be empty')
+      .max(1000, 'Comment cannot exceed 1000 characters'),
   }),
 });
 
