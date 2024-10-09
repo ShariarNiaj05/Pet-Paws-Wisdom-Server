@@ -31,28 +31,28 @@ const followUserIntoDB = async (userId: string, targetUserId: string) => {
 };
 
 const unFollowUserIntoDB = async (userId: string, targetUserId: string) => {
-  if (!mongoose.Types.ObjectId.isValid(targetUserId)) {
-    throw new NotFoundError('Invalid user ID');
+  if (!targetUserId) {
+    throw new AppError(httpStatus.NOT_FOUND, 'Invalid user ID');
   }
 
   const targetUser = await User.findById(targetUserId);
   if (!targetUser) {
-    throw new NotFoundError('User not found');
+    throw new AppError(httpStatus.NOT_FOUND, 'User not found');
   }
 
   const user = await User.findById(userId);
   if (!user) {
-    throw new NotFoundError('User not found');
+    throw new AppError(httpStatus.NOT_FOUND, 'User not found');
   }
 
-  if (!user.following.includes(targetUserId)) {
-    throw new Error('Not following this user');
+  if (!user.following!.includes(targetUserId)) {
+    throw new AppError(httpStatus.NOT_FOUND, 'Not following this user');
   }
 
-  user.following = user.following.filter(
+  user.following = user.following!.filter(
     (id) => id.toString() !== targetUserId,
   );
-  targetUser.followers = targetUser.followers.filter(
+  targetUser.followers = targetUser.followers!.filter(
     (id) => id.toString() !== userId,
   );
 
