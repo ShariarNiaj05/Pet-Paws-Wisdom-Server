@@ -2,7 +2,7 @@ import httpStatus from 'http-status';
 import AppError from '../../errors/AppError';
 import { User } from '../User/user.model';
 
-const followUser = async (userId: string, targetUserId: string) => {
+const followUserIntoDB = async (userId: string, targetUserId: string) => {
   if (!targetUserId) {
     throw new AppError(httpStatus.NOT_FOUND, 'Invalid user ID');
   }
@@ -30,4 +30,4 @@ const followUser = async (userId: string, targetUserId: string) => {
   return { following: user.following, followers: targetUser.followers };
 };
 
-export const FollowingService = {};
+export const FollowingService = { followUserIntoDB };
