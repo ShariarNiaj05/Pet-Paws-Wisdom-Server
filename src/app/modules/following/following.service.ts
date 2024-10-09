@@ -30,4 +30,36 @@ const followUserIntoDB = async (userId: string, targetUserId: string) => {
   return { following: user.following, followers: targetUser.followers };
 };
 
-export const FollowingService = { followUserIntoDB };
+const unFollowUserIntoDB = async (userId: string, targetUserId: string) => {
+  if (!mongoose.Types.ObjectId.isValid(targetUserId)) {
+    throw new NotFoundError('Invalid user ID');
+  }
+
+  const targetUser = await User.findById(targetUserId);
+  if (!targetUser) {
+    throw new NotFoundError('User not found');
+  }
+
+  const user = await User.findById(userId);
+  if (!user) {
+    throw new NotFoundError('User not found');
+  }
+
+  if (!user.following.includes(targetUserId)) {
+    throw new Error('Not following this user');
+  }
+
+  user.following = user.following.filter(
+    (id) => id.toString() !== targetUserId,
+  );
+  targetUser.followers = targetUser.followers.filter(
+    (id) => id.toString() !== userId,
+  );
+
+  await user.save();
+  await targetUser.save();
+
+  return { following: user.following, followers: targetUser.followers };
+};
+
+export const FollowingService = { followUserIntoDB, unFollowUserIntoDB };
