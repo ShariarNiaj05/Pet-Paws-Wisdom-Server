@@ -10,4 +10,6 @@ router.post(
   validateRequest(NotificationValidations.createNotificationValidationSchema),
   NotificationController.createNotification,
 );
+
+router.get('/:userId', NotificationController.getNotificationsByUserId);
 export const NotificationRoutes = router;
