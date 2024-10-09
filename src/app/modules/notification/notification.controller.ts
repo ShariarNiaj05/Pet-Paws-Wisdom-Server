@@ -62,4 +62,5 @@ export const NotificationController = {
   createNotification,
   getNotificationsByUserId,
   markNotificationAsRead,
+  deleteNotification,
 };
