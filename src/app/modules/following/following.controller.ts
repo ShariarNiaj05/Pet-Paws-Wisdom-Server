@@ -48,4 +48,16 @@ const getFollowers = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const getFollowing = catchAsync(async (req: Request, res: Response) => {
+  const userId = req.params.userId;
+
+  const result = await FollowingService.getFollowingFromDB(userId);
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Following list retrieved successfully',
+    data: result,
+  });
+});
 export const FollowingController = { followUser, unFollowUser, getFollowers };
