@@ -68,4 +68,5 @@ export const SubscriptionController = {
   createSubscription,
   cancelSubscription,
   getActiveSubscription,
+  renewSubscription,
 };
