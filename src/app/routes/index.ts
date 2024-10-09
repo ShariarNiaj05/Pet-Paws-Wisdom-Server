@@ -7,6 +7,7 @@ import { ContentRoutes } from '../modules/content/content.route';
 import { CommentRoutes } from '../modules/comment/comment.route';
 import { FollowingRoutes } from '../modules/following/following.route';
 import { NotificationRoutes } from '../modules/notification/notification.route';
+import { SubscriptionRoutes } from '../modules/subscription/subscription.route';
 
 type TModuleRoutes = {
   path: string;
@@ -47,6 +48,10 @@ const moduleRoutes: TModuleRoutes[] = [
   {
     path: '/payment',
     route: PaymentRoutes,
+  },
+  {
+    path: '/subscription',
+    route: SubscriptionRoutes,
   },
 ];
 
