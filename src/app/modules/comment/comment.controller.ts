@@ -40,8 +40,19 @@ const updateComment = catchAsync(async (req: Request, res: Response) => {
     data: result,
   });
 });
+
+const deleteComment = catchAsync(async (req: Request, res: Response) => {
+  await CommentService.deleteCommentFrmDB(req.params.id);
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Comment deleted successfully',
+  });
+});
 export const CommentController = {
   getAllComments,
   createComment,
   updateComment,
+  deleteComment,
 };
