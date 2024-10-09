@@ -36,6 +36,19 @@ const getActiveSubscriptionFromDB = async (
   });
   return subscription;
 };
+
+const renewSubscriptionIntoDB = async (
+  userId: string,
+  paymentId: string,
+  endDate: Date,
+): Promise<ISubscription | null> => {
+  const subscription = await SubscriptionModel.findOneAndUpdate(
+    { user: userId, isActive: true },
+    { paymentId, endDate },
+    { new: true },
+  );
+  return subscription;
+};
 export const SubscriptionService = {
   createSubscriptionIntoDB,
   cancelSubscriptionFrmDB,
