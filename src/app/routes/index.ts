@@ -5,6 +5,7 @@ import { CategoryRoutes } from '../modules/category/category.route';
 import { ContentRoutes } from '../modules/content/content.route';
 import { CommentRoutes } from '../modules/comment/comment.route';
 import { FollowingRoutes } from '../modules/following/following.route';
+import { NotificationRoutes } from '../modules/notification/notification.route';
 
 type TModuleRoutes = {
   path: string;
@@ -37,6 +38,10 @@ const moduleRoutes: TModuleRoutes[] = [
   {
     path: '/following',
     route: FollowingRoutes,
+  },
+  {
+    path: '/notification',
+    route: NotificationRoutes,
   },
 ];
 
