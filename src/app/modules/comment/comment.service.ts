@@ -6,4 +6,4 @@ const getAllCommentsFromDB = async (contentId: string) => {
     .exec();
   return comments;
 };
-export const CommentService = {};
+export const CommentService = { getAllCommentsFromDB };
