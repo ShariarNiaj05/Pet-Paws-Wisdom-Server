@@ -60,4 +60,9 @@ const getFollowing = catchAsync(async (req: Request, res: Response) => {
     data: result,
   });
 });
-export const FollowingController = { followUser, unFollowUser, getFollowers };
+export const FollowingController = {
+  followUser,
+  unFollowUser,
+  getFollowers,
+  getFollowing,
+};
