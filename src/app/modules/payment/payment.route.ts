@@ -11,4 +11,6 @@ router.get(
   PaymentController.getPaymentsByUser,
 );
 
+/* router.post('/', auth(USER_ROLE.user), PaymentController.createPaymentIntent);
+ */
 export const PaymentRoutes = router;
