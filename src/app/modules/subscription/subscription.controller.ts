@@ -21,4 +21,16 @@ const createSubscription = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const cancelSubscription = catchAsync(async (req: Request, res: Response) => {
+  const result = await SubscriptionService.cancelSubscriptionFrmDB(
+    req.user._id,
+  );
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Subscription canceled successfully',
+    data: result,
+  });
+});
 export const SubscriptionController = { createSubscription };
