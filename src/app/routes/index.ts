@@ -3,6 +3,7 @@ import { AuthRoutes } from '../modules/Auth/auth.route';
 import { UserRoutes } from '../modules/User/user.route';
 import { CategoryRoutes } from '../modules/category/category.route';
 import { ContentRoutes } from '../modules/content/content.route';
+import { CommentRoutes } from '../modules/comment/comment.route';
 
 type TModuleRoutes = {
   path: string;
@@ -23,6 +24,10 @@ const moduleRoutes: TModuleRoutes[] = [
   {
     path: '/category',
     route: CategoryRoutes,
+  },
+  {
+    path: '/comment',
+    route: CommentRoutes,
   },
   {
     path: '/content',
