@@ -21,8 +21,13 @@ const markNotificationAsReadIntoDB = async (id: string) => {
   return notification;
 };
 
+const deleteNotificationFromDB = async (id: string) => {
+  await NotificationModel.findByIdAndDelete(id);
+};
+
 export const NotificationService = {
   createNotificationIntoDB,
   getNotificationsByUserIdFromDB,
   markNotificationAsReadIntoDB,
+  deleteNotificationFromDB,
 };
