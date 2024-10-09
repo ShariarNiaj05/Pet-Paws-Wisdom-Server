@@ -9,4 +9,6 @@ router.get('/:contentId', CommentController.getAllComments);
 
 router.post('/', auth(USER_ROLE.user), CommentController.createComment);
 
+router.put('/:id', auth(USER_ROLE.user), CommentController.updateComment);
+
 export const CommentRoutes = router;
