@@ -17,4 +17,10 @@ router.post(
   FollowingController.unFollowUser,
 );
 
+router.get(
+  '/followers/:userId',
+  auth(USER_ROLE.user),
+  FollowingController.getFollowers,
+);
+
 export const FollowingServiceRoutes = router;
