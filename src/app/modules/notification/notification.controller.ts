@@ -17,4 +17,22 @@ const createNotification = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-export const NotificationController = { createNotification };
+const getNotificationsByUserId = catchAsync(
+  async (req: Request, res: Response) => {
+    const notifications =
+      await NotificationService.getNotificationsByUserIdFromDB(
+        req.params.userId,
+      );
+
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: 'Notifications fetched successfully',
+      data: notifications,
+    });
+  },
+);
+export const NotificationController = {
+  createNotification,
+  getNotificationsByUserId,
+};

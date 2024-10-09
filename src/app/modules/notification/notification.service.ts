@@ -5,5 +5,13 @@ const createNotificationIntoDB = async (data: INotification) => {
   const notification = await NotificationModel.create(data);
   return notification;
 };
-
-export const NotificationService = { createNotificationIntoDB };
+const getNotificationsByUserIdFromDB = async (userId: string) => {
+  const notifications = await NotificationModel.find({
+    recipient: userId,
+  }).populate('recipient');
+  return notifications;
+};
+export const NotificationService = {
+  createNotificationIntoDB,
+  getNotificationsByUserIdFromDB,
+};
