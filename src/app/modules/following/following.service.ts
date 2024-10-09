@@ -73,8 +73,22 @@ const getFollowersFromDB = async (userId: string) => {
 
   return user.followers;
 };
+
+const getFollowingFromDB = async (userId: string) => {
+  const user = await User.findById(userId).populate(
+    'following',
+    'name profilePicture',
+  );
+  if (!user) {
+    throw new AppError(httpStatus.NOT_FOUND, 'User not found');
+  }
+
+  return user.following;
+};
+
 export const FollowingService = {
   followUserIntoDB,
   unFollowUserIntoDB,
   getFollowersFromDB,
+  getFollowingFromDB,
 };
