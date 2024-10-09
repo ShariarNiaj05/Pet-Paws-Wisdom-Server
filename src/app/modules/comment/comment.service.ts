@@ -14,4 +14,15 @@ const createCommentIntoDB = async (data: IComment) => {
   return comment;
 };
 
-export const CommentService = { getAllCommentsFromDB, createCommentIntoDB };
+const updateCommentIntoDB = async (id: string, data: Partial<IComment>) => {
+  const updatedComment = await CommentModel.findByIdAndUpdate(id, data, {
+    new: true,
+  });
+  return updatedComment;
+};
+
+export const CommentService = {
+  getAllCommentsFromDB,
+  createCommentIntoDB,
+  updateCommentIntoDB,
+};
