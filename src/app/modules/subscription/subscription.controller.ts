@@ -48,6 +48,22 @@ const getActiveSubscription = catchAsync(
     });
   },
 );
+
+const renewSubscription = catchAsync(async (req: Request, res: Response) => {
+  const { paymentId, endDate } = req.body;
+  const result = await SubscriptionService.renewSubscriptionIntoDB(
+    req.user._id,
+    paymentId,
+    endDate,
+  );
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Subscription renewed successfully',
+    data: result,
+  });
+});
 export const SubscriptionController = {
   createSubscription,
   cancelSubscription,

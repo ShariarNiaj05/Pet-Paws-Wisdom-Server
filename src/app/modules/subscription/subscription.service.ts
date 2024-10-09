@@ -53,4 +53,5 @@ export const SubscriptionService = {
   createSubscriptionIntoDB,
   cancelSubscriptionFrmDB,
   getActiveSubscriptionFromDB,
+  renewSubscriptionIntoDB,
 };
