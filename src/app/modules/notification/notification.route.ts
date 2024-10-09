@@ -12,4 +12,7 @@ router.post(
 );
 
 router.get('/:userId', NotificationController.getNotificationsByUserId);
+
+router.put('/:id/read', NotificationController.markNotificationAsRead);
+
 export const NotificationRoutes = router;
