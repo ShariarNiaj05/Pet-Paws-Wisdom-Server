@@ -1,1 +1,5 @@
-export interface IDemo {}
+export interface IFollowing {
+  userId: string;
+  following: string[];
+  followers: string[];
+}
