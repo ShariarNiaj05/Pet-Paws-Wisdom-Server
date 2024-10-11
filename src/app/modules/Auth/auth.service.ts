@@ -11,7 +11,7 @@ import { createToken, verifyToken } from './auth.utils';
 const loginUser = async (payload: TLoginUser) => {
   // checking if the user is exist
   const user = await User.findOne({ email: payload.email });
-
+  console.log('user login', user);
   if (!user) {
     const user = await registerUser(payload);
 

@@ -4,7 +4,7 @@ const loginValidationSchema = z.object({
   body: z.object({
     name: z.string().optional(),
     img: z.string().optional(),
-    email: z.string({ required_error: 'Id is required.' }),
+    email: z.string({ required_error: 'email is required.' }),
     password: z.string().optional(),
   }),
 });
