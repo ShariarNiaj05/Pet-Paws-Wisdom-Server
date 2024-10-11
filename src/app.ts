@@ -19,6 +19,7 @@ app.use(
       'http://localhost:3000',
       'https://pet-paws-wisdom-client.vercel.app',
     ],
+    // credentials: true,
   }),
 );
 app.use(cookieParser());
