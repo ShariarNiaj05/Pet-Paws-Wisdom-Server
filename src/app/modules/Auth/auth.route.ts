@@ -13,12 +13,12 @@ router.post(
 
 router.post(
   '/refresh-token',
-  validateRequest(AuthValidation.refreshTokenValidationSchema),
+  // validateRequest(AuthValidation.refreshTokenValidationSchema),
   AuthControllers.refreshToken,
 );
 router.post(
   '/register',
-  validateRequest(AuthValidation.registerUserValidationSchema),
+  // validateRequest(AuthValidation.registerUserValidationSchema),
   AuthControllers.registerUser,
 );
 
