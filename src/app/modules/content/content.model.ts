@@ -17,7 +17,7 @@ const contentSchema = new Schema<IContent>(
       maxlength: [200, 'Content title cannot exceed 200 characters'],
     },
     body: {
-      type: String,
+      type: HTMLBodyElement,
       required: [true, 'Content body is required'],
       trim: true,
     },

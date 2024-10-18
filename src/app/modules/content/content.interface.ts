@@ -3,7 +3,7 @@ import { Types } from 'mongoose';
 export interface IContent {
   author: Types.ObjectId;
   title: string;
-  body: string;
+  body: HTMLBodyElement;
   category: Types.ObjectId;
   tags?: string[];
   isPremium: boolean;
