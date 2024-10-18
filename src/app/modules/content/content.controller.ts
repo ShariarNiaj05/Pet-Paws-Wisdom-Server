@@ -9,6 +9,7 @@ const createContent = catchAsync(async (req: Request, res: Response) => {
     req.body,
     req.user?._id,
   );
+  console.log('Content result', result);
   sendResponse(res, {
     statusCode: httpStatus.CREATED,
     success: true,
