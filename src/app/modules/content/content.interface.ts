@@ -1,7 +1,7 @@
 import { Types } from 'mongoose';
 
 export interface IContent {
-  author: Types.ObjectId;
+  author: Types.ObjectId | string;
   title: string;
   body: string;
   category: Types.ObjectId;
