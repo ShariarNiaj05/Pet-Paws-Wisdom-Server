@@ -7,6 +7,10 @@ import httpStatus from 'http-status';
 const createContent = catchAsync(async (req: Request, res: Response) => {
   const userId = req.user?._id;
 
+  if (!userId) {
+    throw new Error('User not authenticated');
+  }
+
   const result = await ContentService.createContentIntoDB(
     req.body,
     req.user?._id,
