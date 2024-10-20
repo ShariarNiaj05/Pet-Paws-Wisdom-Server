@@ -5,6 +5,8 @@ import sendResponse from '../../utils/sendResponse';
 import httpStatus from 'http-status';
 
 const createContent = catchAsync(async (req: Request, res: Response) => {
+  const userId = req.user?._id;
+
   const result = await ContentService.createContentIntoDB(
     req.body,
     req.user?._id,
