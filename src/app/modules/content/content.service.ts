@@ -3,7 +3,12 @@ import { IContent } from './content.interface';
 import { ContentModel } from './content.model';
 
 const createContentIntoDB = async (data: IContent, userId: string) => {
-  const newContent = await ContentModel.create({ ...data, author: userId });
+  const newContent = await ContentModel.create({
+    ...data,
+    author: userId,
+    upvotes: 0,
+    downvotes: 0,
+  });
   return newContent;
 };
 
