@@ -9,9 +9,9 @@ import catchAsync from '../utils/catchAsync';
 
 const auth = (...requiredRoles: (keyof typeof USER_ROLE)[]) => {
   return catchAsync(async (req: Request, res: Response, next: NextFunction) => {
-    console.log('Headers received:', req.headers.accessToken);
+    console.log('Headers received:', req.headers.accesstoken);
 
-    const token = req.headers.accessToken;
+    const token = req.headers.accesstoken;
     // const token = req.cookies.accessToken;
 
     // checking if the token is missing
@@ -24,7 +24,7 @@ const auth = (...requiredRoles: (keyof typeof USER_ROLE)[]) => {
       token as string,
       config.jwt_access_secret as string,
     ) as JwtPayload;
-
+    console.log('decoded token', decoded);
     const { role, email } = decoded;
 
     // checking if the user is exist
