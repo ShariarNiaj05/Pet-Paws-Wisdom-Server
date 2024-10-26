@@ -9,11 +9,11 @@ import catchAsync from '../utils/catchAsync';
 
 const auth = (...requiredRoles: (keyof typeof USER_ROLE)[]) => {
   return catchAsync(async (req: Request, res: Response, next: NextFunction) => {
-    console.log('Headers received:', req.headers.accesstoken);
+    // console.log('accesstoken received:', req.headers.accesstoken);
 
     const token = req.headers.accesstoken;
     // const token = req.cookies.accessToken;
-
+    console.log('Headers token:', token);
     // checking if the token is missing
     if (!token) {
       throw new AppError(httpStatus.UNAUTHORIZED, 'You are not authorized!');
