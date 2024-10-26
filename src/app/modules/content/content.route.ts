@@ -8,8 +8,8 @@ import { USER_ROLE } from '../User/user.utils';
 const router = express.Router();
 router.post(
   '/',
-  // auth(USER_ROLE.user),
-  validateRequest(ContentValidations.createContentValidationSchema),
+  auth(USER_ROLE.user),
+  // validateRequest(ContentValidations.createContentValidationSchema),
   ContentController.createContent,
 );
 
