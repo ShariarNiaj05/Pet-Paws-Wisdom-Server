@@ -10,7 +10,7 @@ const createContent = catchAsync(async (req: Request, res: Response) => {
   if (!userId) {
     throw new Error('User not authenticated');
   }
-
+  console.log('req', req.body);
   const result = await ContentService.createContentIntoDB(
     req.body,
     req.user?._id,
