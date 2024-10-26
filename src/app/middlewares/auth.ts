@@ -12,7 +12,7 @@ const auth = (...requiredRoles: (keyof typeof USER_ROLE)[]) => {
     console.log('Cookies received:', req.cookies);
     console.log('Headers received:', req.headers.accesstoken);
 
-    const token = req.headers.accesstoken;
+    const token = req.headers;
     // const token = req.cookies.accessToken;
 
     // checking if the token is missing
