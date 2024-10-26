@@ -11,9 +11,9 @@ const auth = (...requiredRoles: (keyof typeof USER_ROLE)[]) => {
   return catchAsync(async (req: Request, res: Response, next: NextFunction) => {
     // console.log('accesstoken received:', req.headers.accesstoken);
 
-    const token = req.headers.accesstoken;
+    const token = req.headers.accesstoken as string;
     // const token = req.cookies.accessToken;
-    console.log('Headers token:', token);
+    // console.log('Headers token:', token);
     // checking if the token is missing
     if (!token) {
       throw new AppError(httpStatus.UNAUTHORIZED, 'You are not authorized!');
@@ -21,7 +21,7 @@ const auth = (...requiredRoles: (keyof typeof USER_ROLE)[]) => {
 
     // checking if the given token is valid
     const decoded = jwt.verify(
-      token as string,
+      token,
       config.jwt_access_secret as string,
     ) as JwtPayload;
     console.log('decoded token', decoded);
