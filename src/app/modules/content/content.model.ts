@@ -14,7 +14,7 @@ const contentSchema = new Schema<IContent>(
       type: String,
       required: [true, 'Content title is required'],
       trim: true,
-      maxlength: [200, 'Content title cannot exceed 200 characters'],
+      // maxlength: [200, 'Content title cannot exceed 200 characters'],
     },
     body: {
       type: String,

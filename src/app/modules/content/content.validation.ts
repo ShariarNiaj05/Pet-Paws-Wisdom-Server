@@ -3,10 +3,7 @@ import { z } from 'zod';
 const createContentValidationSchema = z.object({
   body: z.object({
     author: z.string().min(1, 'Author ID is required'),
-    title: z
-      .string()
-      .min(1, 'Title is required')
-      .max(200, 'Title cannot exceed 200 characters'),
+    title: z.string(),
     body: z.string().min(1, 'Body content is required'),
     category: z.string().min(1, 'Category ID is required'),
     tags: z.array(z.string()).optional(),
