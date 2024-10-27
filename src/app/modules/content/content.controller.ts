@@ -5,41 +5,25 @@ import sendResponse from '../../utils/sendResponse';
 import httpStatus from 'http-status';
 
 const createContent = catchAsync(async (req: Request, res: Response) => {
-  try {
-    const userId = req.user?._id;
+  const userId = req.user?._id;
 
-    if (!userId) {
-      throw new Error('User not authenticated');
-    }
-
-    console.log('Request Headers:', req.headers);
-    console.log('Request Body:', req.body);
-
-    // Validate required fields
-    const { title, body, category } = req.body;
-    if (!title || !body || !category) {
-      return res.status(httpStatus.BAD_REQUEST).json({
-        success: false,
-        message: 'Missing required fields',
-        errorSources: [
-          !title && { path: 'title', message: 'Title is required' },
-          !body && { path: 'body', message: 'Body is required' },
-          !category && { path: 'category', message: 'Category is required' },
-        ].filter(Boolean),
-      });
-    }
-
-    const result = await ContentService.createContentIntoDB(req.body, userId);
-
-    sendResponse(res, {
-      statusCode: httpStatus.CREATED,
-      success: true,
-      message: 'Content created successfully',
-      data: result,
-    });
-  } catch (error) {
-    console.error('Error in createContent:', error);
+  if (!userId) {
+    throw new Error('User not authenticated');
   }
+
+  console.log('Request Headers:', req.headers);
+  console.log('Request Body:', req.body);
+
+  const result = await ContentService.createContentIntoDB(
+    req.body,
+    req.user?._id,
+  );
+  sendResponse(res, {
+    statusCode: httpStatus.CREATED,
+    success: true,
+    message: 'Content created successfully',
+    data: result,
+  });
 });
 
 const getAllContents = catchAsync(async (req: Request, res: Response) => {
