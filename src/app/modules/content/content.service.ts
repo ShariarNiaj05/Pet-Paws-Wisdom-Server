@@ -3,13 +3,27 @@ import { IContent } from './content.interface';
 import { ContentModel } from './content.model';
 
 const createContentIntoDB = async (data: IContent, userId: string) => {
-  const newContent = await ContentModel.create({
-    ...data,
-    author: userId,
-    upvotes: 0,
-    downvotes: 0,
-  });
-  return newContent;
+  try {
+    console.log('Creating content with data:', data);
+    console.log('User ID:', userId);
+
+    const contentData = {
+      ...data,
+      author: userId,
+      upvotes: 0,
+      downvotes: 0,
+    };
+
+    console.log('Final content data:', contentData);
+
+    const newContent = await ContentModel.create(contentData);
+    console.log('Created content:', newContent);
+
+    return newContent;
+  } catch (error) {
+    console.error('Error in createContentIntoDB:', error);
+    throw error;
+  }
 };
 
 const getAllContentsFromDB = async (query: Record<string, unknown>) => {
