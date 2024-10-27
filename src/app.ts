@@ -20,6 +20,8 @@ app.use(
       'https://pet-paws-wisdom-client.vercel.app',
     ],
     credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'accessToken'],
   }),
 );
 app.use(cookieParser());
