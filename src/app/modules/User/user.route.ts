@@ -27,7 +27,7 @@ router.get(
 
 router.put(
   '/:id',
-  auth(USER_ROLE.admin),
+
   validateRequest(updateUserValidationSchema),
   UserController.updateUserById,
 );
